@@ -3,7 +3,7 @@
 ---
 
 // https://mmistakes.github.io/minimal-mistakes/docs/stylesheets/#customizing
-$sans-serif: 'Hi Melody';
+$sans-serif: 'Gowun Batang';
 $monospace: 'Ubuntu Mono';
 $type-size-4-5: 1.12em !default;
 
@@ -12,22 +12,22 @@ $type-size-4-5: 1.12em !default;
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import 'minimal-mistakes'; // main partials
 
-@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 
 // https://github.com/mmistakes/minimal-mistakes/issues/1219
 html {
-	font-size: 12px; // change to whatever
+	font-size: 14px; // change to whatever
 
 	@include breakpoint($medium) {
-		font-size: 14px; // change to whatever
-	}
-
-	@include breakpoint($large) {
 		font-size: 16px; // change to whatever
 	}
 
-	@include breakpoint($x-large) {
+	@include breakpoint($large) {
 		font-size: 18px; // change to whatever
+	}
+
+	@include breakpoint($x-large) {
+		font-size: 20px; // change to whatever
 	}
 }
 
