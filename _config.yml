@@ -20,7 +20,7 @@ title                    : "Internationalwe's Blog"
 title_separator          : "-"
 subtitle                 : "ROME WASNT'T BUILT IN A DAY"# site tagline that appears below site title in masthead
 name                     : "Shin HoJun"
-description              : "An amazing website."
+description              : "머신러닝과 웹에 관심이 많습니다."
 url                      : "https://internationalwe.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "internationalwe/internationalwe.github.io"
