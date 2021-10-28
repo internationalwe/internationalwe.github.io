@@ -1,6 +1,6 @@
 ---
 title: '강화학습 : 딥살사와 폴리시 그레이디언트'
-excerpt: ''
+excerpt: '근사함수인 딥살사와 폴리시 그레디언트의 개념'
 toc: true
 toc_sticky: true
 categories:
@@ -9,8 +9,6 @@ tags:
     - 인공지능
     - 강화학습
 ---
-
-# 강화 학습 : 딥살사와 폴리시 그레이디언트
 
 ---
 
@@ -28,10 +26,12 @@ tags:
 ### 2-1) 근사함수을 활용하여 가치함수의 매개변수화
 
 -   많은 데이터가 있을 때 모든 정보를 저장하는 것 보다 어떠한 함수를 통해 근사를 하여 함수의 식을 가지는 것이 더 효율적이다.
+
+![image-20211028094436915](../images/2021-10-28-deepsarsa/image-20211028094436915.png)
+
+![image-20211028094505391](../images/2021-10-28-deepsarsa/image-20211028094505391.png)
+
 -   어떠한 함수를 통해 근사한다는 것은 경향을 파악하는 것이다.
-
-![image-20211028075320546](C:\Users\tlsgh\Documents\code\tech_blog\internationalwe.github.io\images\5장 강화학습 심화1 - 그리드월드와 근사함수 6602843f35e44cf480440aeaf702d7cd\image-20211028075320546.png)![image-20211028075351435](C:\Users\tlsgh\Documents\code\tech_blog\internationalwe.github.io\images\5장 강화학습 심화1 - 그리드월드와 근사함수 6602843f35e44cf480440aeaf702d7cd\image-20211028075351435.png)
-
 -   근사함수 중 인공신경망이 있습니다.
 
 ---
@@ -48,10 +48,10 @@ tags:
 
 -   노드는 계층구조로 이루어져있습니다. 각 층은 레이어라고 부르고 층은 입력층, 은닉충, 출력층이 있습니다. 같은 층에 있는 노드들은 서로 연결되지 않는다는 특징이 있다.
 -   기본 구조는 다른 층의 노드들끼리 서로 연결되어 있습니다.
+
+![image-20211028094518876](../images/2021-10-28-deepsarsa/image-20211028094518876.png)
+
 -   이때 노드와 노드간의 연결에는 가중치가 있습니다. 가중치란 노드와 노드사이의 연결거리라고 할 수 있습니다.
-
-![image-20211028075417081](C:\Users\tlsgh\Documents\code\tech_blog\internationalwe.github.io\images\5장 강화학습 심화1 - 그리드월드와 근사함수 6602843f35e44cf480440aeaf702d7cd\image-20211028075417081.png)
-
 -   활성함수의 입력되는 값은 아래와 같습니다.
 
 $$활성함수의 입력 = \sum{(입력)}*{(가중치)}+bias$$
@@ -135,17 +135,17 @@ $$(R_{t+1} + \gamma Q(S_{t+1},a_{t+1})-Q(S_t,A_t))^2$$
 
 $$정책=\pi_{\theta}(a|s)$$
 
--   가중치값은 목표함수의 미분값의 일부분을 더한 값이 업데이트 됩니다. $J(\theta)$는 목표함수이다.
+-   가중치값은 목표함수의 미분값의 일부분을 더한 값이 업데이트 됩니다. $$J(\theta)$$는 목표함수이다.
 
 $$\theta_{t+1} = \theta_{t}+ \alpha \nabla_{\theta}J(\theta)$$
 
 -   위와 같이 목표함수의 경사상승법을 따라서 근사된 정책을 업데이트하는 방식을 포리시 그레이디언트라고 합니다.
--   논문 "Policy Gradient Methods for Reinforcement learning with Function Approximation"의 정리에 따르면 아래와 목표함수의 미분값을 아래와 같습니다. $d_{\pi_{\theta}}$는 s라는 상태에 에이전트가 있을 확률 입니다.
+-   논문 "Policy Gradient Methods for Reinforcement learning with Function Approximation"의 정리에 따르면 아래와 목표함수의 미분값을 아래와 같습니다. $$d_{\pi_{\theta}}$$는 s라는 상태에 에이전트가 있을 확률 입니다.
 
 $$\nabla_{\theta}J(\theta)=\sum_{s}d_{\pi_{\theta}}(s)\sum_{a}\nabla_{\theta}\pi_{\theta}(a|s)q_{\pi}(s,a)$$
 
 -   위의 식은 가능한 모든 상태에 대해 각 상태에서 특정 행동을 했을 때 받을 큐함수의 기댓값을 의미 이는 에이전트가 에피소드 동안 내릴 선택에 대한 좋고 나쁨의 지표가 됨
--   $f(x)\nabla_{x}logf(x)=\nabla_{x}f(x)$이므로 $\nabla_{\theta}\pi_{\theta}(a|s)$을 치환하면
+-   $$f(x)\nabla_{x}logf(x)=\nabla_{x}f(x)$이므로 $$\nabla_{\theta}\pi_{\theta}(a|s)$$을 치환하면
 
 $$\nabla_{\theta}J(\theta)=\sum_{s}d_{\pi_{\theta}}(s)\sum_{a}\pi_{\theta}(a|s) * \nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)$$
 
@@ -157,10 +157,10 @@ $$\nabla_{\theta}J(\theta)=E_{\pi_{\theta}}[\nabla_{\theta}log\pi_{\theta}(a|s)q
 
 $$\theta_{t+1}\approx\theta_{t}+\alpha[\nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)]$$
 
--   그러면 우리가 구해야 할것은 $\nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)$이다 하지만 폴리시 그레이디언트에서는 가치함수나 큐함수의 값을 가지고 있지 않기 때문에 큐함수를 $G_{t}$ 로 대체하는 것이다. 이것이 REINFORCE 알고리즘이다.
+-   그러면 우리가 구해야 할것은 $$\nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)$$이다 하지만 폴리시 그레이디언트에서는 가치함수나 큐함수의 값을 가지고 있지 않기 때문에 큐함수를 $$G_{t}$$ 로 대체하는 것이다. 이것이 REINFORCE 알고리즘이다.
 
 $$\theta_{t+1}\approx\theta_{t}+\alpha[\nabla_{\theta}log\pi_{\theta}(a|s)G_{t}]$$
 
 -   REINFORCEMENT에서 가중치 업데이트 방식은 에피소드가 끝난 후 환경으로부터 받은 정보를 토대로 위 식을 통하여 가중치 업데이트가 진행된다.
--   또한 행동을 할 때에는 출력층에서 값이 나오는데 이것은 각각의 정책 확률이여서 $\epsilon$-탐욕정책을 사용하지 않더라도 탐험이 가능합니다.
--   REINFORCEMENT에서의 오류함수는 $\nabla_{\theta}[log\pi_{\theta}(a|s)G_{t}]$가 오류함수이다.
+-   또한 행동을 할 때에는 출력층에서 값이 나오는데 이것은 각각의 정책 확률이여서 $$\epsilon$$-탐욕정책을 사용하지 않더라도 탐험이 가능합니다.
+-   REINFORCEMENT에서의 오류함수는 $$\nabla_{\theta}[log\pi_{\theta}(a|s)G_{t}]$$가 오류함수이다.
