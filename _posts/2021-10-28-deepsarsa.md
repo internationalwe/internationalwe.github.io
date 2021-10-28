@@ -156,11 +156,11 @@ $$\nabla_{\theta}J(\theta)=E_{\pi_{\theta}}[\nabla_{\theta}log\pi_{\theta}(a|s)q
 
 -   이를 다시 업데이트 식으로 바꾸면 아래와 같다.
 
-$$\theta_{t+1}\approx\theta_{t}+\alpha[\nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)]$$
+$$\theta_{t+1}\approx\theta_{t}+\alpha[\nabla_{\theta}log\pi_{\theta}(a||s)q_{\pi}(s,a)]$$
 
 -   그러면 우리가 구해야 할것은 $$\nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)$$ 이다 하지만 폴리시 그레이디언트에서는 가치함수나 큐함수의 값을 가지고 있지 않기 때문에 큐함수를 $$G_{t}$$ 로 대체하는 것이다. 이것이 REINFORCE 알고리즘이다.
 
-$$\theta_{t+1}\approx\theta_{t}+\alpha[\nabla_{\theta}log\pi_{\theta}(a\|s)G_{t}]$$
+$$\theta_{t+1}\approx\theta_{t}+\alpha[\nabla_{\theta}log\pi_{\theta}(a|s)G_{t}]$$
 
 -   REINFORCEMENT에서 가중치 업데이트 방식은 에피소드가 끝난 후 환경으로부터 받은 정보를 토대로 위 식을 통하여 가중치 업데이트가 진행된다.
 -   또한 행동을 할 때에는 출력층에서 값이 나오는데 이것은 각각의 정책 확률이여서 $$\epsilon$$-탐욕정책을 사용하지 않더라도 탐험이 가능합니다.
