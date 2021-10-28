@@ -146,7 +146,7 @@ $$\theta_{t+1} = \theta_{t}+ \alpha \nabla_{\theta}J(\theta)$$
 $$\nabla_{\theta}J(\theta)=\sum_{s}d_{\pi_{\theta}}(s)\sum_{a}\nabla_{\theta}\pi_{\theta}(a|s)q_{\pi}(s,a)$$
 
 -   위의 식은 가능한 모든 상태에 대해 각 상태에서 특정 행동을 했을 때 받을 큐함수의 기댓값을 의미 이는 에이전트가 에피소드 동안 내릴 선택에 대한 좋고 나쁨의 지표가 됨
--   $$f(x)\nabla_{x}logf(x)=\nabla_{x}f(x)$이므로 $$\nabla_{\theta}\pi_{\theta}(a|s)$$을 치환하면
+-   $$f(x)\nabla_{x}logf(x)=\nabla_{x}f(x)$이므로 $$\nabla_{\theta}\pi_{\theta}(a\|s)$$을 치환하면
 
 $$\nabla_{\theta}J(\theta)=\sum_{s}d_{\pi_{\theta}}(s)\sum_{a}\pi_{\theta}(a|s) * \nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)$$
 
