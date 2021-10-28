@@ -158,7 +158,7 @@ $$\nabla_{\theta}J(\theta)=E_{\pi_{\theta}}[\nabla_{\theta}log\pi_{\theta}(a|s)q
 
 $$\theta_{t+1}\approx\theta_{t}+\alpha[\nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)]$$
 
--   그러면 우리가 구해야 할것은 $$\nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)$$ 이다 하지만 폴리시 그레이디언트에서는 가치함수나 큐함수의 값을 가지고 있지 않기 때문에 큐함수를 $$G_{t}$$ 로 대체하는 것이다. 이것이 REINFORCE 알고리즘이다.
+-   그러면 우리가 구해야 할것은 $$\nabla_{\theta}log\pi_{\theta}(a\|s)q_{\pi}(s,a)$$ 이다 하지만 폴리시 그레이디언트에서는 가치함수나 큐함수의 값을 가지고 있지 않기 때문에 큐함수를 $$G_{t}$$ 로 대체하는 것이다. 이것이 REINFORCE 알고리즘이다.
 
 $$\theta_{t+1}\approx\theta_{t}+\alpha[\nabla_{\theta}log\pi_{\theta}(a|s)G_{t}]$$
 
