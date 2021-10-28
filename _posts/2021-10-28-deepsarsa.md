@@ -3,6 +3,7 @@ title: '강화학습 : 딥살사와 폴리시 그레이디언트'
 excerpt: '근사함수인 딥살사와 폴리시 그레디언트의 개념'
 toc: true
 toc_sticky: true
+usemathjax: true
 categories:
     - 강화학습
 tags:
