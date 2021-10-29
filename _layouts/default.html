@@ -13,8 +13,7 @@
     {% include head.html %}
     {% include head/custom.html %}
   </head>
-<<<<<<< HEAD
-=======
+
     {% if page.usemathjax %}
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
@@ -24,7 +23,6 @@
     <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS-MML_HTMLorMML"></script>
   {% endif %}
   
->>>>>>> abee8f75d8cdfd2cb6a5214867bfd563e582ee1c
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
     {% include_cached skip-links.html %}
