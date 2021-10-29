@@ -3,6 +3,10 @@ title: '강화학습 : 딥살사와 폴리시 그레이디언트'
 excerpt: '근사함수인 딥살사와 폴리시 그레디언트의 개념'
 toc: true
 toc_sticky: true
+<<<<<<< HEAD
+=======
+usemathjax: true
+>>>>>>> abee8f75d8cdfd2cb6a5214867bfd563e582ee1c
 categories:
     - 강화학습
 tags:
@@ -145,7 +149,10 @@ $$\theta_{t+1} = \theta_{t}+ \alpha \nabla_{\theta}J(\theta)$$
 $$\nabla_{\theta}J(\theta)=\sum_{s}d_{\pi_{\theta}}(s)\sum_{a}\nabla_{\theta}\pi_{\theta}(a|s)q_{\pi}(s,a)$$
 
 -   위의 식은 가능한 모든 상태에 대해 각 상태에서 특정 행동을 했을 때 받을 큐함수의 기댓값을 의미 이는 에이전트가 에피소드 동안 내릴 선택에 대한 좋고 나쁨의 지표가 됨
--   $$f(x)\nabla_{x}logf(x)=\nabla_{x}f(x)$이므로 $$\nabla_{\theta}\pi_{\theta}(a|s)$$을 치환하면
+    <<<<<<< HEAD
+-   # $$f(x)\nabla_{x}logf(x)=\nabla_{x}f(x)$이므로 $$\nabla_{\theta}\pi_{\theta}(a|s)$$을 치환하면
+-   $$f(x)\nabla_{x}logf(x)=\nabla_{x}f(x)$이므로 $$\nabla_{\theta}\pi_{\theta}(a\|s)$$을 치환하면
+    > > > > > > > abee8f75d8cdfd2cb6a5214867bfd563e582ee1c
 
 $$\nabla_{\theta}J(\theta)=\sum_{s}d_{\pi_{\theta}}(s)\sum_{a}\pi_{\theta}(a|s) * \nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)$$
 
@@ -157,10 +164,17 @@ $$\nabla_{\theta}J(\theta)=E_{\pi_{\theta}}[\nabla_{\theta}log\pi_{\theta}(a|s)q
 
 $$\theta_{t+1}\approx\theta_{t}+\alpha[\nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)]$$
 
--   그러면 우리가 구해야 할것은 $$\nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)$$이다 하지만 폴리시 그레이디언트에서는 가치함수나 큐함수의 값을 가지고 있지 않기 때문에 큐함수를 $$G_{t}$$ 로 대체하는 것이다. 이것이 REINFORCE 알고리즘이다.
+<<<<<<< HEAD
+
+-   # 그러면 우리가 구해야 할것은 $$\nabla_{\theta}log\pi_{\theta}(a|s)q_{\pi}(s,a)$$이다 하지만 폴리시 그레이디언트에서는 가치함수나 큐함수의 값을 가지고 있지 않기 때문에 큐함수를 $$G_{t}$$ 로 대체하는 것이다. 이것이 REINFORCE 알고리즘이다.
+-   그러면 우리가 구해야 할것은 $$\nabla_{\theta}log\pi_{\theta}(a\|s)q_{\pi}(s,a)$$ 이다 하지만 폴리시 그레이디언트에서는 가치함수나 큐함수의 값을 가지고 있지 않기 때문에 큐함수를 $$G_{t}$$ 로 대체하는 것이다. 이것이 REINFORCE 알고리즘이다.
+    > > > > > > > abee8f75d8cdfd2cb6a5214867bfd563e582ee1c
 
 $$\theta_{t+1}\approx\theta_{t}+\alpha[\nabla_{\theta}log\pi_{\theta}(a|s)G_{t}]$$
 
 -   REINFORCEMENT에서 가중치 업데이트 방식은 에피소드가 끝난 후 환경으로부터 받은 정보를 토대로 위 식을 통하여 가중치 업데이트가 진행된다.
 -   또한 행동을 할 때에는 출력층에서 값이 나오는데 이것은 각각의 정책 확률이여서 $$\epsilon$$-탐욕정책을 사용하지 않더라도 탐험이 가능합니다.
--   REINFORCEMENT에서의 오류함수는 $$\nabla_{\theta}[log\pi_{\theta}(a|s)G_{t}]$$가 오류함수이다.
+    <<<<<<< HEAD
+-   # REINFORCEMENT에서의 오류함수는 $$\nabla_{\theta}[log\pi_{\theta}(a|s)G_{t}]$$가 오류함수이다.
+-   REINFORCEMENT에서의 오류함수는 $$\nabla_{\theta}[log\pi_{\theta}(a\|s)G_{t}]$$가 오류함수이다.
+    > > > > > > > abee8f75d8cdfd2cb6a5214867bfd563e582ee1c
